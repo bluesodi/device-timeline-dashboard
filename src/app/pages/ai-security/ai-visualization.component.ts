@@ -57,88 +57,61 @@ interface CollectorRow {
 // ==================== 颜色常量 ====================
 
 const COLUMN_COLORS: Record<number, string> = {
-  0: '#0EA5E9',
-  1: '#3B82F6',
-  2: '#F97316',
-  3: '#EF4444',
+  0: '#3B82F6',
+  1: '#F97316',
+  2: '#EF4444',
 };
 
 const COLUMN_LABELS: Record<number, string> = {
-  0: '用户',
-  1: '设备',
-  2: '应用',
-  3: 'AI模型',
+  0: '设备',
+  1: '应用',
+  2: 'AI模型',
 };
 
 // ==================== 模拟数据 ====================
 
-const USERS: NodeData[] = [
-  { id: 'u-chen', name: '陈主任', icon: '\u{1F464}', column: 0, type: '用户', category: '管理层', connections: 3, tokenUsage: 25600, status: 'active', lastActive: '2分钟前', allowed: true },
-  { id: 'u-wang', name: '王教授', icon: '\u{1F464}', column: 0, type: '用户', category: '教研层', connections: 3, tokenUsage: 18300, status: 'active', lastActive: '5分钟前', allowed: true },
-  { id: 'u-liu', name: '刘工程师', icon: '\u{1F464}', column: 0, type: '用户', category: '研发层', connections: 4, tokenUsage: 34200, status: 'active', lastActive: '刚刚', allowed: true },
-  { id: 'u-zhang', name: '张医生', icon: '\u{1F464}', column: 0, type: '用户', category: '医疗层', connections: 3, tokenUsage: 12100, status: 'active', lastActive: '8分钟前', allowed: true },
-  { id: 'u-li', name: '李护士', icon: '\u{1F464}', column: 0, type: '用户', category: '医疗层', connections: 3, tokenUsage: 8900, status: 'inactive', lastActive: '1小时前', allowed: false },
-];
-
 const DEVICES: NodeData[] = [
-  { id: 'd-server', name: 'Server Node', icon: '\u{1F5A5}\uFE0F', column: 1, type: '设备', category: '服务器', connections: 4, tokenUsage: 45200, status: 'active', lastActive: '刚刚', allowed: true },
-  { id: 'd-browser', name: 'Web Browser', icon: '\u{1F310}', column: 1, type: '设备', category: '浏览器', connections: 5, tokenUsage: 23100, status: 'active', lastActive: '1分钟前', allowed: true },
-  { id: 'd-macbook', name: 'MacBook Pro', icon: '\u{1F4BB}', column: 1, type: '设备', category: '笔记本', connections: 5, tokenUsage: 28900, status: 'active', lastActive: '2分钟前', allowed: true },
-  { id: 'd-windows', name: 'Windows PC', icon: '\u{1F5A5}\uFE0F', column: 1, type: '设备', category: '台式机', connections: 5, tokenUsage: 19500, status: 'active', lastActive: '3分钟前', allowed: true },
-  { id: 'd-iot', name: 'IoT Gateway', icon: '\u{1F4E1}', column: 1, type: '设备', category: '物联网', connections: 3, tokenUsage: 8700, status: 'active', lastActive: '5分钟前', allowed: true },
-  { id: 'd-iphone', name: 'iPhone 15 Pro', icon: '\u{1F4F1}', column: 1, type: '设备', category: '手机', connections: 4, tokenUsage: 11200, status: 'active', lastActive: '4分钟前', allowed: true },
-  { id: 'd-ipad', name: 'iPad Pro', icon: '\u{1F4F1}', column: 1, type: '设备', category: '平板', connections: 4, tokenUsage: 9400, status: 'active', lastActive: '6分钟前', allowed: true },
-  { id: 'd-android', name: 'Android Pixel', icon: '\u{1F4F1}', column: 1, type: '设备', category: '手机', connections: 4, tokenUsage: 7800, status: 'active', lastActive: '7分钟前', allowed: true },
-  { id: 'd-watch', name: 'Smart Watch', icon: '\u{231A}', column: 1, type: '设备', category: '穿戴', connections: 2, tokenUsage: 3200, status: 'inactive', lastActive: '2小时前', allowed: false },
+  { id: 'd-server', name: 'Server Node', icon: '\u{1F5A5}\uFE0F', column: 0, type: '设备', category: '服务器', connections: 4, tokenUsage: 45200, status: 'active', lastActive: '刚刚', allowed: true },
+  { id: 'd-browser', name: 'Web Browser', icon: '\u{1F310}', column: 0, type: '设备', category: '浏览器', connections: 5, tokenUsage: 23100, status: 'active', lastActive: '1分钟前', allowed: true },
+  { id: 'd-macbook', name: 'MacBook Pro', icon: '\u{1F4BB}', column: 0, type: '设备', category: '笔记本', connections: 5, tokenUsage: 28900, status: 'active', lastActive: '2分钟前', allowed: true },
+  { id: 'd-windows', name: 'Windows PC', icon: '\u{1F5A5}\uFE0F', column: 0, type: '设备', category: '台式机', connections: 5, tokenUsage: 19500, status: 'active', lastActive: '3分钟前', allowed: true },
+  { id: 'd-iot', name: 'IoT Gateway', icon: '\u{1F4E1}', column: 0, type: '设备', category: '物联网', connections: 3, tokenUsage: 8700, status: 'active', lastActive: '5分钟前', allowed: true },
+  { id: 'd-iphone', name: 'iPhone 15 Pro', icon: '\u{1F4F1}', column: 0, type: '设备', category: '手机', connections: 4, tokenUsage: 11200, status: 'active', lastActive: '4分钟前', allowed: true },
+  { id: 'd-ipad', name: 'iPad Pro', icon: '\u{1F4F1}', column: 0, type: '设备', category: '平板', connections: 4, tokenUsage: 9400, status: 'active', lastActive: '6分钟前', allowed: true },
+  { id: 'd-android', name: 'Android Pixel', icon: '\u{1F4F1}', column: 0, type: '设备', category: '手机', connections: 4, tokenUsage: 7800, status: 'active', lastActive: '7分钟前', allowed: true },
+  { id: 'd-watch', name: 'Smart Watch', icon: '\u{231A}', column: 0, type: '设备', category: '穿戴', connections: 2, tokenUsage: 3200, status: 'inactive', lastActive: '2小时前', allowed: false },
 ];
 
 const APPS: NodeData[] = [
-  { id: 'a-chatgpt', name: 'ChatGPT', icon: '\u{1F916}', column: 2, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 52000, status: 'active', lastActive: '刚刚', allowed: true },
-  { id: 'a-chrome', name: 'Chrome', icon: '\u{1F310}', column: 2, type: '应用', category: '浏览器', connections: 3, tokenUsage: 18700, status: 'active', lastActive: '1分钟前', allowed: true },
-  { id: 'a-claude', name: 'Claude', icon: '\u{1F916}', column: 2, type: '应用', category: 'AI助手', connections: 1, tokenUsage: 24500, status: 'active', lastActive: '刚刚', allowed: true },
-  { id: 'a-midjourney', name: 'Midjourney', icon: '\u{1F3A8}', column: 2, type: '应用', category: '图像生成', connections: 2, tokenUsage: 8300, status: 'active', lastActive: '5分钟前', allowed: true },
-  { id: 'a-edge', name: 'Edge', icon: '\u{1F310}', column: 2, type: '应用', category: '浏览器', connections: 2, tokenUsage: 12400, status: 'active', lastActive: '3分钟前', allowed: true },
-  { id: 'a-copilot', name: 'GitHub Copilot', icon: '\u{1F4BB}', column: 2, type: '应用', category: '代码助手', connections: 2, tokenUsage: 35200, status: 'active', lastActive: '刚刚', allowed: true },
-  { id: 'a-dalle', name: 'DALL-E', icon: '\u{1F3A8}', column: 2, type: '应用', category: '图像生成', connections: 1, tokenUsage: 5200, status: 'active', lastActive: '12分钟前', allowed: true },
-  { id: 'a-aistudio', name: 'AI Studio', icon: '\u{1F9E0}', column: 2, type: '应用', category: 'AI平台', connections: 4, tokenUsage: 41000, status: 'active', lastActive: '刚刚', allowed: true },
-  { id: 'a-notion', name: 'Notion AI', icon: '\u{1F4DD}', column: 2, type: '应用', category: '笔记', connections: 2, tokenUsage: 9800, status: 'active', lastActive: '4分钟前', allowed: true },
-  { id: 'a-wenxin', name: '\u6587\u5FC3\u4E00\u8A00', icon: '\u{1F916}', column: 2, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 15600, status: 'active', lastActive: '2分钟前', allowed: true },
-  { id: 'a-ernie', name: 'ERNIE 4.0', icon: '\u{1F916}', column: 2, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 18900, status: 'active', lastActive: '1分钟前', allowed: true },
-  { id: 'a-qwen', name: 'Qwen', icon: '\u{1F916}', column: 2, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 11200, status: 'active', lastActive: '6分钟前', allowed: true },
-  { id: 'a-xverse', name: 'Xverse', icon: '\u{1F916}', column: 2, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 9400, status: 'inactive', lastActive: '45分钟前', allowed: false },
+  { id: 'a-chatgpt', name: 'ChatGPT', icon: '\u{1F916}', column: 1, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 52000, status: 'active', lastActive: '刚刚', allowed: true },
+  { id: 'a-chrome', name: 'Chrome', icon: '\u{1F310}', column: 1, type: '应用', category: '浏览器', connections: 3, tokenUsage: 18700, status: 'active', lastActive: '1分钟前', allowed: true },
+  { id: 'a-claude', name: 'Claude', icon: '\u{1F916}', column: 1, type: '应用', category: 'AI助手', connections: 1, tokenUsage: 24500, status: 'active', lastActive: '刚刚', allowed: true },
+  { id: 'a-midjourney', name: 'Midjourney', icon: '\u{1F3A8}', column: 1, type: '应用', category: '图像生成', connections: 2, tokenUsage: 8300, status: 'active', lastActive: '5分钟前', allowed: true },
+  { id: 'a-edge', name: 'Edge', icon: '\u{1F310}', column: 1, type: '应用', category: '浏览器', connections: 2, tokenUsage: 12400, status: 'active', lastActive: '3分钟前', allowed: true },
+  { id: 'a-copilot', name: 'GitHub Copilot', icon: '\u{1F4BB}', column: 1, type: '应用', category: '代码助手', connections: 2, tokenUsage: 35200, status: 'active', lastActive: '刚刚', allowed: true },
+  { id: 'a-dalle', name: 'DALL-E', icon: '\u{1F3A8}', column: 1, type: '应用', category: '图像生成', connections: 1, tokenUsage: 5200, status: 'active', lastActive: '12分钟前', allowed: true },
+  { id: 'a-aistudio', name: 'AI Studio', icon: '\u{1F9E0}', column: 1, type: '应用', category: 'AI平台', connections: 4, tokenUsage: 41000, status: 'active', lastActive: '刚刚', allowed: true },
+  { id: 'a-notion', name: 'Notion AI', icon: '\u{1F4DD}', column: 1, type: '应用', category: '笔记', connections: 2, tokenUsage: 9800, status: 'active', lastActive: '4分钟前', allowed: true },
+  { id: 'a-wenxin', name: '\u6587\u5FC3\u4E00\u8A00', icon: '\u{1F916}', column: 1, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 15600, status: 'active', lastActive: '2分钟前', allowed: true },
+  { id: 'a-ernie', name: 'ERNIE 4.0', icon: '\u{1F916}', column: 1, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 18900, status: 'active', lastActive: '1分钟前', allowed: true },
+  { id: 'a-qwen', name: 'Qwen', icon: '\u{1F916}', column: 1, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 11200, status: 'active', lastActive: '6分钟前', allowed: true },
+  { id: 'a-xverse', name: 'Xverse', icon: '\u{1F916}', column: 1, type: '应用', category: 'AI助手', connections: 2, tokenUsage: 9400, status: 'inactive', lastActive: '45分钟前', allowed: false },
 ];
 
 const MODELS: NodeData[] = [
-  { id: 'm-gpt4', name: 'GPT-4', icon: '\u{1F9E0}', column: 3, type: '模型', category: '大语言模型', connections: 5, tokenUsage: 78000, status: 'active', lastActive: '刚刚', allowed: true },
-  { id: 'm-claude3', name: 'Claude 3', icon: '\u{1F9E0}', column: 3, type: '模型', category: '大语言模型', connections: 4, tokenUsage: 42000, status: 'active', lastActive: '刚刚', allowed: true },
-  { id: 'm-gpt35', name: 'GPT-3.5', icon: '\u{1F9E0}', column: 3, type: '模型', category: '大语言模型', connections: 2, tokenUsage: 18500, status: 'active', lastActive: '2分钟前', allowed: true },
-  { id: 'm-gemini', name: 'Gemini', icon: '\u{1F9E0}', column: 3, type: '模型', category: '多模态模型', connections: 3, tokenUsage: 28600, status: 'active', lastActive: '1分钟前', allowed: true },
-  { id: 'm-starcoder', name: 'StarCoder', icon: '\u{1F4BB}', column: 3, type: '模型', category: '代码模型', connections: 1, tokenUsage: 15200, status: 'active', lastActive: '刚刚', allowed: true },
-  { id: 'm-llama3', name: 'LLaMA 3', icon: '\u{1F9E0}', column: 3, type: '模型', category: '大语言模型', connections: 3, tokenUsage: 23400, status: 'active', lastActive: '3分钟前', allowed: true },
-  { id: 'm-falcon', name: 'Falcon', icon: '\u{1F9E0}', column: 3, type: '模型', category: '大语言模型', connections: 2, tokenUsage: 11200, status: 'active', lastActive: '5分钟前', allowed: true },
-  { id: 'm-mistral', name: 'Mistral', icon: '\u{1F9E0}', column: 3, type: '模型', category: '大语言模型', connections: 2, tokenUsage: 9800, status: 'inactive', lastActive: '30分钟前', allowed: false },
+  { id: 'm-gpt4', name: 'GPT-4', icon: '\u{1F9E0}', column: 2, type: '模型', category: '大语言模型', connections: 5, tokenUsage: 78000, status: 'active', lastActive: '刚刚', allowed: true },
+  { id: 'm-claude3', name: 'Claude 3', icon: '\u{1F9E0}', column: 2, type: '模型', category: '大语言模型', connections: 4, tokenUsage: 42000, status: 'active', lastActive: '刚刚', allowed: true },
+  { id: 'm-gpt35', name: 'GPT-3.5', icon: '\u{1F9E0}', column: 2, type: '模型', category: '大语言模型', connections: 2, tokenUsage: 18500, status: 'active', lastActive: '2分钟前', allowed: true },
+  { id: 'm-gemini', name: 'Gemini', icon: '\u{1F9E0}', column: 2, type: '模型', category: '多模态模型', connections: 3, tokenUsage: 28600, status: 'active', lastActive: '1分钟前', allowed: true },
+  { id: 'm-starcoder', name: 'StarCoder', icon: '\u{1F4BB}', column: 2, type: '模型', category: '代码模型', connections: 1, tokenUsage: 15200, status: 'active', lastActive: '刚刚', allowed: true },
+  { id: 'm-llama3', name: 'LLaMA 3', icon: '\u{1F9E0}', column: 2, type: '模型', category: '大语言模型', connections: 3, tokenUsage: 23400, status: 'active', lastActive: '3分钟前', allowed: true },
+  { id: 'm-falcon', name: 'Falcon', icon: '\u{1F9E0}', column: 2, type: '模型', category: '大语言模型', connections: 2, tokenUsage: 11200, status: 'active', lastActive: '5分钟前', allowed: true },
+  { id: 'm-mistral', name: 'Mistral', icon: '\u{1F9E0}', column: 2, type: '模型', category: '大语言模型', connections: 2, tokenUsage: 9800, status: 'inactive', lastActive: '30分钟前', allowed: false },
 ];
 
-const ALL_NODES: NodeData[] = [...USERS, ...DEVICES, ...APPS, ...MODELS];
+const ALL_NODES: NodeData[] = [...DEVICES, ...APPS, ...MODELS];
 
 const MOCK_LINKS: LinkData[] = [
-  // 用户 → 设备
-  { source: 'u-chen', target: 'd-server', value: 35 },
-  { source: 'u-chen', target: 'd-browser', value: 35 },
-  { source: 'u-chen', target: 'd-macbook', value: 30 },
-  { source: 'u-wang', target: 'd-windows', value: 40 },
-  { source: 'u-wang', target: 'd-macbook', value: 30 },
-  { source: 'u-wang', target: 'd-iphone', value: 30 },
-  { source: 'u-liu', target: 'd-server', value: 30 },
-  { source: 'u-liu', target: 'd-windows', value: 25 },
-  { source: 'u-liu', target: 'd-iot', value: 20 },
-  { source: 'u-liu', target: 'd-android', value: 25 },
-  { source: 'u-zhang', target: 'd-ipad', value: 35 },
-  { source: 'u-zhang', target: 'd-iphone', value: 35 },
-  { source: 'u-zhang', target: 'd-watch', value: 30 },
-  { source: 'u-li', target: 'd-browser', value: 40 },
-  { source: 'u-li', target: 'd-ipad', value: 35 },
-  { source: 'u-li', target: 'd-watch', value: 25 },
   // 设备 → 应用
   { source: 'd-server', target: 'a-chatgpt', value: 25 },
   { source: 'd-server', target: 'a-claude', value: 20 },
@@ -209,10 +182,9 @@ const MOCK_LINKS: LinkData[] = [
 // ==================== 右侧面板数据 ====================
 
 const STATS_DATA: StatItem[] = [
-  { label: '用户数', value: '76.9K', icon: '\u{1F465}', color: '#0EA5E9' },
-  { label: '设备数', value: '344', icon: '\u{1F5A5}\uFE0F', color: '#3B82F6' },
-  { label: '事件数', value: '257', icon: '\u{26A1}', color: '#F97316' },
-  { label: '模型数', value: '6', icon: '\u{1F9E0}', color: '#EF4444' },
+  { label: '设备数', value: '9', icon: '\u{1F5A5}\uFE0F', color: '#3B82F6' },
+  { label: '应用数', value: '13', icon: '\u{1F4F1}', color: '#F97316' },
+  { label: '模型数', value: '8', icon: '\u{1F9E0}', color: '#EF4444' },
   { label: 'Token数', value: '3', icon: '\u{1F522}', color: '#8B5CF6' },
 ];
 
@@ -291,10 +263,9 @@ const COLLECTOR_DATA: CollectorRow[] = [
           <!-- 类型筛选 -->
           <select class="type-filter" [(ngModel)]="typeFilter" (change)="onTypeFilterChange()">
             <option value="all">全部类型</option>
-            <option value="0">用户</option>
-            <option value="1">设备</option>
-            <option value="2">应用</option>
-            <option value="3">模型</option>
+            <option value="0">设备</option>
+            <option value="1">应用</option>
+            <option value="2">模型</option>
           </select>
         </div>
 
@@ -985,7 +956,7 @@ const COLLECTOR_DATA: CollectorRow[] = [
     /* 统计概览 */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 8px;
     }
 
@@ -1284,15 +1255,13 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
 
   filterTabs = [
     { key: 'all', label: '全部' },
-    { key: '0', label: '用户' },
-    { key: '1', label: '设备' },
-    { key: '2', label: '应用' },
-    { key: '3', label: '模型' },
+    { key: '0', label: '设备' },
+    { key: '1', label: '应用' },
+    { key: '2', label: '模型' },
   ];
 
   // ==================== 图例 ====================
   legendEntries = [
-    { label: '用户', color: '#0EA5E9' },
     { label: '设备', color: '#3B82F6' },
     { label: '应用', color: '#F97316' },
     { label: 'AI模型', color: '#EF4444' },
@@ -1328,14 +1297,14 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
   private readonly MAX_SCALE = 3;
 
   // 布局常量
-  private readonly NODE_RADIUS = 28;
-  private readonly NODE_DIAMETER = 56;
-  private readonly MIN_NODE_RADIUS = 18;
-  private readonly MAX_NODE_RADIUS = 32;
-  private readonly PADDING_TOP = 50;
-  private readonly PADDING_BOTTOM = 30;
-  private readonly PADDING_LEFT = 40;
-  private readonly PADDING_RIGHT = 40;
+  private readonly NODE_WIDTH = 140;
+  private readonly NODE_RADIUS = 8;
+  private readonly MIN_NODE_HEIGHT = 52;
+  private readonly MAX_NODE_HEIGHT = 90;
+  private readonly PADDING_TOP = 60;
+  private readonly PADDING_BOTTOM = 40;
+  private readonly PADDING_LEFT = 60;
+  private readonly PADDING_RIGHT = 60;
 
   // 其他
   private resizeObserver: ResizeObserver | null = null;
@@ -1363,7 +1332,7 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
       }
     }
     // Rebuild ALL_NODES and nodes
-    this.nodes = [...USERS, ...DEVICES, ...APPS, ...MODELS];
+    this.nodes = [...DEVICES, ...APPS, ...MODELS];
     this.filteredNodes = [...this.nodes];
     this.updateFilteredNodes();
     if (this.currentView === 'sankey') {
@@ -1482,8 +1451,8 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
 
   toggleSecurity(): void {
     if (!this.selectedNode) return;
-    // Only apps (column 2) can be toggled via the shared service
-    if (this.selectedNode.column === 2) {
+    // Only apps (column 1) can be toggled via the shared service
+    if (this.selectedNode.column === 1) {
       this.dataService.toggleAllowed(this.selectedNode.id);
     } else {
       // For other node types, toggle locally
@@ -1587,41 +1556,41 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
     }
 
     // 按列分组
-    const columns: NodeData[][] = [[], [], [], []];
+    const columns: NodeData[][] = [[], [], []];
     for (const n of this.nodes) {
       columns[n.column].push(n);
     }
 
-    const colCount = 4;
-    const colGap = (this.canvasWidth - this.PADDING_LEFT - this.PADDING_RIGHT - this.NODE_DIAMETER * colCount) / (colCount - 1);
+    const colCount = 3;
+    const colGap = (this.canvasWidth - this.PADDING_LEFT - this.PADDING_RIGHT - this.NODE_WIDTH * colCount) / (colCount - 1);
     const availableH = this.canvasHeight - this.PADDING_TOP - this.PADDING_BOTTOM;
 
     // 计算每列总流量
-    const colFlow: number[] = [0, 0, 0, 0];
+    const colFlow: number[] = [0, 0, 0];
     for (let c = 0; c < colCount; c++) {
       colFlow[c] = columns[c].reduce((s, n) => s + (flowMap.get(n.id) || 0), 0) || 1;
     }
 
-    // 计算节点半径
-    const radiusMap = new Map<string, number>();
+    // 计算节点高度
+    const heightMap = new Map<string, number>();
     for (const n of this.nodes) {
       const flow = flowMap.get(n.id) || 0;
       const colTotal = colFlow[n.column] || 1;
       const ratio = flow / colTotal;
-      const r = Math.max(this.MIN_NODE_RADIUS, Math.min(this.MAX_NODE_RADIUS, this.MIN_NODE_RADIUS + ratio * (this.MAX_NODE_RADIUS - this.MIN_NODE_RADIUS)));
-      radiusMap.set(n.id, r);
+      const h = Math.max(this.MIN_NODE_HEIGHT, Math.min(this.MAX_NODE_HEIGHT, this.MIN_NODE_HEIGHT + ratio * (this.MAX_NODE_HEIGHT - this.MIN_NODE_HEIGHT)));
+      heightMap.set(n.id, h);
     }
 
-    // 计算每列节点总高度（直径之和）
-    const colNodeH: number[] = [0, 0, 0, 0];
+    // 计算每列节点总高度
+    const colNodeH: number[] = [0, 0, 0];
     for (let c = 0; c < colCount; c++) {
-      colNodeH[c] = columns[c].reduce((s, n) => s + (radiusMap.get(n.id) || 0) * 2, 0);
+      colNodeH[c] = columns[c].reduce((s, n) => s + (heightMap.get(n.id) || 0), 0);
     }
 
     // 计算节点位置
     this.renderNodes = [];
     for (let c = 0; c < colCount; c++) {
-      const x = this.PADDING_LEFT + c * (this.NODE_DIAMETER + colGap);
+      const x = this.PADDING_LEFT + c * (this.NODE_WIDTH + colGap);
       const totalH = colNodeH[c];
       const totalGap = availableH - totalH;
       const gapCount = columns[c].length + 1;
@@ -1629,17 +1598,16 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
       let y = this.PADDING_TOP + gap;
 
       for (const node of columns[c]) {
-        const r = radiusMap.get(node.id)!;
-        const d = r * 2;
+        const h = heightMap.get(node.id)!;
         this.renderNodes.push({
           ...node,
           x,
           y,
-          width: d,
-          height: d,
-          radius: r,
+          width: this.NODE_WIDTH,
+          height: h,
+          radius: this.NODE_RADIUS,
         });
-        y += d + gap;
+        y += h + gap;
       }
     }
 
@@ -1725,27 +1693,26 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
     // 绘制连接线
     const maxLinkValue = Math.max(...this.renderLinks.map(l => l.value), 1);
     const minLineWidth = 2;
-    const maxLineWidth = 16;
+    const maxLineWidth = 20;
 
     for (const link of this.renderLinks) {
       let alpha: number;
+      let isHoveredLink = false;
 
       if (isHighlighting) {
         const isRelevant = link.source.id === this.hoveredNodeId ||
           link.target.id === this.hoveredNodeId ||
           (relevantIds.has(link.source.id) && relevantIds.has(link.target.id));
-        alpha = isRelevant ? 0.6 : 0.08;
+        alpha = isRelevant ? 0.8 : 0.08;
+        isHoveredLink = isRelevant;
       } else if (searchMatchIds) {
         const hasMatch = searchMatchIds.has(link.source.id) || searchMatchIds.has(link.target.id);
-        alpha = hasMatch ? 0.35 : 0.06;
+        alpha = hasMatch ? 0.5 : 0.06;
       } else {
-        alpha = 0.35;
+        alpha = 0.4;
       }
 
       const lineWidth = minLineWidth + (link.value / maxLinkValue) * (maxLineWidth - minLineWidth);
-      // 随机微调：±20% 范围内，避免极端值，保持美观
-      const jitter = this.linkJitter(link.source.id + link.target.id);
-      const finalLineWidth = lineWidth * (0.85 + jitter * 0.3);
       const sourceColor = COLUMN_COLORS[link.source.column];
       const targetColor = COLUMN_COLORS[link.target.column];
 
@@ -1772,12 +1739,23 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
 
       const x0 = link.source.x + link.source.width;
       const x1 = link.target.x;
-      const cpOffset = (x1 - x0) * 0.45;
+      const cpOffset = (x1 - x0) * 0.5;
 
-      // 绘制渐变
-      const gradStartX = x0;
-      const gradEndX = x1;
-      const gradient = ctx.createLinearGradient(gradStartX, 0, gradEndX, 0);
+      // 绘制渐变连接线（带阴影）
+      ctx.save();
+      if (isHoveredLink) {
+        ctx.shadowColor = sourceColor;
+        ctx.shadowBlur = 12;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+      } else {
+        ctx.shadowColor = 'rgba(0,0,0,0.06)';
+        ctx.shadowBlur = 4;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 2;
+      }
+
+      const gradient = ctx.createLinearGradient(x0, 0, x1, 0);
       gradient.addColorStop(0, this.hexToRgba(sourceColor, alpha));
       gradient.addColorStop(1, this.hexToRgba(targetColor, alpha));
 
@@ -1785,9 +1763,10 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
       ctx.moveTo(x0, sourceY);
       ctx.bezierCurveTo(x0 + cpOffset, sourceY, x1 - cpOffset, targetY, x1, targetY);
       ctx.strokeStyle = gradient;
-      ctx.lineWidth = finalLineWidth;
+      ctx.lineWidth = lineWidth;
       ctx.lineCap = 'round';
       ctx.stroke();
+      ctx.restore();
     }
 
     // 绘制节点
@@ -1807,53 +1786,101 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
       }
 
       const color = COLUMN_COLORS[node.column] || '#999';
-      // Blocked nodes: lower opacity, grayscale overlay
       const isBlocked = !node.allowed;
-      const nr = node.radius || this.NODE_RADIUS;
-      const cx = node.x + node.width / 2;
-      const cy = node.y + node.height / 2;
-
-      const finalAlpha = nodeAlpha * (isBlocked ? 0.5 : 1);
+      const finalAlpha = nodeAlpha * (isBlocked ? 0.45 : 1);
       const fillColor = isBlocked ? '#9ca3af' : color;
+      const darkerColor = this.shadeColor(fillColor, -20);
 
-      // 选中发光
+      const r = this.NODE_RADIUS;
+      const x = node.x;
+      const y = node.y;
+      const w = node.width;
+      const h = node.height;
+      const cx = x + w / 2;
+      const cy = y + h / 2;
+
+      // hover 放大效果
+      const scale = isHovered ? 1.05 : 1;
+      ctx.save();
+      if (isHovered) {
+        ctx.translate(cx, cy);
+        ctx.scale(scale, scale);
+        ctx.translate(-cx, -cy);
+      }
+
+      // 选中发光阴影
       if (isSelected && nodeAlpha > 0.5) {
         ctx.save();
         ctx.shadowColor = fillColor;
-        ctx.shadowBlur = 20;
+        ctx.shadowBlur = 24;
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 0;
-        ctx.beginPath();
-        ctx.arc(cx, cy, nr + 4, 0, Math.PI * 2);
-        ctx.fillStyle = this.hexToRgba(fillColor, 0.2);
+        this.roundRect(ctx, x - 3, y - 3, w + 6, h + 6, r + 2);
+        ctx.fillStyle = this.hexToRgba(fillColor, 0.15);
         ctx.fill();
         ctx.restore();
       }
 
-      // 节点背景（圆形）
-      ctx.beginPath();
-      ctx.arc(cx, cy, nr, 0, Math.PI * 2);
-      ctx.fillStyle = this.hexToRgba(fillColor, finalAlpha * 0.88);
+      // 节点外发光阴影
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.12)';
+      ctx.shadowBlur = isHovered ? 16 : 8;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = isHovered ? 6 : 3;
+
+      // 圆角矩形背景（渐变填充）
+      this.roundRect(ctx, x, y, w, h, r);
+      const nodeGradient = ctx.createLinearGradient(x, y, x, y + h);
+      nodeGradient.addColorStop(0, this.hexToRgba(fillColor, finalAlpha * 0.95));
+      nodeGradient.addColorStop(1, this.hexToRgba(darkerColor, finalAlpha * 0.95));
+      ctx.fillStyle = nodeGradient;
       ctx.fill();
+      ctx.restore();
 
       // 节点边框
-      ctx.strokeStyle = this.hexToRgba(fillColor, finalAlpha * (isHovered ? 1.2 : 0.9));
-      ctx.lineWidth = isHovered ? 2.5 : 1.2;
+      ctx.save();
+      this.roundRect(ctx, x, y, w, h, r);
+      ctx.strokeStyle = this.hexToRgba(isHovered ? '#ffffff' : fillColor, finalAlpha * (isHovered ? 0.9 : 0.7));
+      ctx.lineWidth = isHovered ? 2 : 1;
       ctx.stroke();
+      ctx.restore();
 
-      // 节点图标（上半部分）
+      // 节点图标和文字
       if (finalAlpha > 0.3) {
-        const iconY = cy - 6;
+        const iconY = cy - 5;
+        const textY = cy + 12;
+
+        // 图标
         ctx.fillStyle = `rgba(255, 255, 255, ${finalAlpha})`;
-        ctx.font = '14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(node.icon, cx, iconY);
 
-        // 节点名称（下半部分）
-        ctx.font = '10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctx.fillText(node.name, cx, iconY + 16);
+        // 节点名称（带文字阴影描边保证可读性）
+        ctx.save();
+        ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+        ctx.shadowBlur = 3;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 1;
+        ctx.fillStyle = `rgba(255, 255, 255, ${finalAlpha})`;
+        ctx.fillText(node.name, cx, textY);
+        ctx.restore();
+
+        // 类别标签
+        ctx.save();
+        ctx.font = '10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = `rgba(255, 255, 255, ${finalAlpha * 0.75})`;
+        ctx.fillText(node.category, cx, textY + 14);
+        ctx.restore();
       }
+
+      ctx.restore(); // 恢复 hover scale
     }
 
     ctx.restore(); // 恢复缩放/平移
@@ -1869,20 +1896,21 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
     // 使用恒等变换绘制列标题
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
 
-    const headerY = 14;
-    const colCount = 4;
-    const colGap = (this.canvasWidth - this.PADDING_LEFT - this.PADDING_RIGHT - this.NODE_DIAMETER * colCount) / (colCount - 1);
+    const headerY = 18;
+    const colCount = 3;
+    const colGap = (this.canvasWidth - this.PADDING_LEFT - this.PADDING_RIGHT - this.NODE_WIDTH * colCount) / (colCount - 1);
 
-    ctx.font = '12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.font = 'bold 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
 
     for (let c = 0; c < colCount; c++) {
-      const cx = this.PADDING_LEFT + c * (this.NODE_DIAMETER + colGap) + this.NODE_DIAMETER / 2;
+      const cx = this.PADDING_LEFT + c * (this.NODE_WIDTH + colGap) + this.NODE_WIDTH / 2;
       const screenX = cx * this.scale + this.offsetX;
       if (screenX > -100 && screenX < this.canvasWidth + 100) {
-        ctx.fillStyle = '#9ca3af';
-        ctx.fillText(COLUMN_LABELS[c], screenX, headerY);
+        const color = COLUMN_COLORS[c];
+        ctx.fillStyle = color;
+        ctx.fillText(COLUMN_LABELS[c].toUpperCase(), screenX, headerY);
       }
     }
 
@@ -2028,12 +2056,13 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
   private hitTestNode(wx: number, wy: number): RenderNode | null {
     for (let i = this.renderNodes.length - 1; i >= 0; i--) {
       const n = this.renderNodes[i];
-      const cx = n.x + n.width / 2;
-      const cy = n.y + n.height / 2;
-      const nr = n.radius || this.NODE_RADIUS;
-      const dx = wx - cx;
-      const dy = wy - cy;
-      if (dx * dx + dy * dy <= (nr + 2) * (nr + 2)) {
+      const padding = 4;
+      if (
+        wx >= n.x - padding &&
+        wx <= n.x + n.width + padding &&
+        wy >= n.y - padding &&
+        wy <= n.y + n.height + padding
+      ) {
         return n;
       }
     }
@@ -2107,5 +2136,30 @@ export class AiVisualizationComponent implements AfterViewInit, OnInit, OnDestro
     const g = parseInt(hex.slice(3, 5), 16);
     const b = parseInt(hex.slice(5, 7), 16);
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+
+  private shadeColor(hex: string, percent: number): string {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    const newR = Math.max(0, Math.min(255, r + (r * percent) / 100));
+    const newG = Math.max(0, Math.min(255, g + (g * percent) / 100));
+    const newB = Math.max(0, Math.min(255, b + (b * percent) / 100));
+    return `rgb(${Math.round(newR)}, ${Math.round(newG)}, ${Math.round(newB)})`;
+  }
+
+  private roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number): void {
+    const radius = Math.min(r, w / 2, h / 2);
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.lineTo(x + w - radius, y);
+    ctx.arcTo(x + w, y, x + w, y + radius, radius);
+    ctx.lineTo(x + w, y + h - radius);
+    ctx.arcTo(x + w, y + h, x + w - radius, y + h, radius);
+    ctx.lineTo(x + radius, y + h);
+    ctx.arcTo(x, y + h, x, y + h - radius, radius);
+    ctx.lineTo(x, y + radius);
+    ctx.arcTo(x, y, x + radius, y, radius);
+    ctx.closePath();
   }
 }
